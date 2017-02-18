@@ -19,12 +19,13 @@ def displaySol():
 
     if file[0] == 'SAT':
         result = file[1].split()
+        print(len(result))
 
 
         for i in range(729):
-        	if int(result[i]) > 0:
-        		number = getNumber(int(result[i]))
-        		puzzle[int(i/81)].append(number)
+            if int(result[i]) > 0:
+                number = getNumber(int(result[i]))
+                puzzle[int(i/81)].append(number)
 
         # outputGUI(puzzle)
         print("\n      SOLUTION\n")

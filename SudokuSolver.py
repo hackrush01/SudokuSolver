@@ -165,8 +165,10 @@ def getBlocks(varNumber):
     # checks for each box
     for i in range(9):
 
-        # writes if it is blank
-        if(puzzle[block][i] == 0 and i != box):
+        # writes if even if it is NOT blank as that leads to problems when the last box is already filled
+        # it doesn't generate the variables for the ones that are already input, and that may lead to missing
+        # cnf clauses(the code that worked before this was just luck I guess)
+        if(i != box):
             # write(block, i,number)
             file.write("-{0:d} -{1:d} 0\n".format(varNumber,getVarNumber(block, i, number)))
 
